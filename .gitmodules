@@ -1,0 +1,3 @@
+[submodule "lib/hexwall"]
+	path = lib/hexwall
+	url = https://github.com/mitchelloharawild/hexwall
