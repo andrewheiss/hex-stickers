@@ -19,16 +19,29 @@ The folders here contain PNG, SVG, PDF, and Illustrator versions of each sticker
 
 # Stickers
 
-```{r echo=FALSE, out.width="50%", fig.align="center"}
+```{r include=FALSE}
 source("lib/hexwall/hexwall.R")
 
-hexwall("to_compile", sticker_row_size = 3, sticker_width = 400,
+hex_files <- c("dataviz_text.png",
+               "dspm_text.png",
+               "espp_text.png",
+               "eval_text.png",
+               "quRan.png",
+               "scriptuRs.png")
+
+file.symlink(paste0("../png/", hex_files), 
+             paste0("hex_compile/", hex_files))
+```
+
+```{r echo=FALSE, out.width="50%", fig.align="center"}
+hexwall("hex_compile", sticker_row_size = 3, sticker_width = 400,
         sort_mode = "color")
 ```
 
 <div style="float:right"><small>*I used [`hexwall`](https://github.com/mitchelloharawild/hexwall) to combine these hex stickers*</small></div>
 
 - [Classes](#classes)
+   - [Program evaluation for public service](#program-evaluation-for-public-service)
    - [Data science for public management](#data-science-for-public-management)
    - [Data visualization](#data-visualization)
    - [Economy, Society, and Public Policy](#economy-society-and-public-policy)
@@ -38,6 +51,35 @@ hexwall("to_compile", sticker_row_size = 3, sticker_width = 400,
 
 
 ## Classes
+
+### Program evaluation for public service
+
+- **Details:** Taught at Georgia State University: [Fall 2019](https://evalf19.classes.andrewheiss.com/), [Spring 2020](https://evalsp20.classes.andrewheiss.com/)
+- **Font:** [Overpass](https://fonts.google.com/specimen/Overpass) Bold
+- **Colors:** Generated a palette of 8 colors from the [viridis inferno colormap](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html):
+
+```{r eval=FALSE, indent="    "}
+viridisLite::viridis(8, option = "inferno", begin = 0.1, end = 0.9)
+```
+
+- **Design:** Generic [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph) showing an exposure, an outcome, an indirect effect, a confounder, and a collider
+
+```{r echo=FALSE, out.width="50%", fig.align="center"}
+eval_no_text <- image_read("png/eval_no-text.png")
+eval_text <- image_read("png/eval_text.png")
+
+single_height <- image_info(eval_text)$height
+single_width <- image_info(eval_text)$width
+gap <- 40
+
+image_blank(width = (single_width * 2) + gap, 
+            height = single_height,
+            color = "white") %>% 
+  image_composite(eval_text, offset = "+0+0") %>% 
+  image_composite(eval_no_text, 
+                  offset = paste0("+", single_width + gap, "+0"))
+```
+
 
 ### Data science for public management
 
@@ -69,7 +111,7 @@ image_blank(width = (single_width * 2) + gap,
 
 - **Details:** Taught at Brigham Young University, Fall 2018 ([class website](https://datavizf18.classes.andrewheiss.com/))
 - **Font:** [Oswald](https://fonts.google.com/specimen/Oswald) Bold
-- **Colors:** Adapted from the [viridis plasma color palette](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
+- **Colors:** Adapted from the [viridis plasma colormap](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
 - **Design:** Stylized version of [Hans Rosling's health + wealth plot](https://github.com/jennybc/gapminder)
 
 ```{r echo=FALSE, out.width="50%", fig.align="center"}

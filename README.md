@@ -18,7 +18,7 @@ sticker.
 
 # Stickers
 
-<img src="README_files/figure-gfm/unnamed-chunk-2-1.png" width="50%" style="display: block; margin: auto;" />
+<img src="README_files/figure-gfm/unnamed-chunk-3-1.png" width="50%" style="display: block; margin: auto;" />
 
 <div style="float:right">
 
@@ -28,6 +28,8 @@ to combine these hex stickers*</small>
 </div>
 
   - [Classes](#classes)
+      - [Program evaluation for public
+        service](#program-evaluation-for-public-service)
       - [Data science for public
         management](#data-science-for-public-management)
       - [Data visualization](#data-visualization)
@@ -38,6 +40,30 @@ to combine these hex stickers*</small>
       - [scriptuRs](#scripturs)
 
 ## Classes
+
+### Program evaluation for public service
+
+  - **Details:** Taught at Georgia State University:
+    [Fall 2019](https://evalf19.classes.andrewheiss.com/),
+    [Spring 2020](https://evalsp20.classes.andrewheiss.com/)
+
+  - **Font:** [Overpass](https://fonts.google.com/specimen/Overpass)
+    Bold
+
+  - **Colors:** Generated a palette of 8 colors from the [viridis
+    inferno
+    colormap](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html):
+    
+    ``` r
+    viridisLite::viridis(8, option = "inferno", begin = 0.1, end = 0.9)
+    ```
+
+  - **Design:** Generic
+    [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph) showing
+    an exposure, an outcome, an indirect effect, a confounder, and a
+    collider
+
+<img src="README_files/figure-gfm/unnamed-chunk-5-1.png" width="50%" style="display: block; margin: auto;" />
 
 ### Data science for public management
 
@@ -53,22 +79,21 @@ to combine these hex stickers*</small>
         Project](https://thenounproject.com)
       - Normal distribution plotted with `ggplot(data_frame(x = -3:3),
         aes(x = x)) + stat_function(fun = "dnorm")`, saved with
-        `ggsave()`, and wrangled in
-Illustrator
+        `ggsave()`, and wrangled in Illustrator
 
-<img src="README_files/figure-gfm/unnamed-chunk-3-1.png" width="50%" style="display: block; margin: auto;" />
+<img src="README_files/figure-gfm/unnamed-chunk-6-1.png" width="50%" style="display: block; margin: auto;" />
 
 ### Data visualization
 
   - **Details:** Taught at Brigham Young University, Fall 2018 ([class
     website](https://datavizf18.classes.andrewheiss.com/))
   - **Font:** [Oswald](https://fonts.google.com/specimen/Oswald) Bold
-  - **Colors:** Adapted from the [viridis plasma color
-    palette](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
+  - **Colors:** Adapted from the [viridis plasma
+    colormap](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
   - **Design:** Stylized version of [Hans Rosling’s health + wealth
     plot](https://github.com/jennybc/gapminder)
 
-<img src="README_files/figure-gfm/unnamed-chunk-4-1.png" width="50%" style="display: block; margin: auto;" />
+<img src="README_files/figure-gfm/unnamed-chunk-7-1.png" width="50%" style="display: block; margin: auto;" />
 
 ### Economy, Society, and Public Policy
 
@@ -83,10 +108,9 @@ Illustrator
         MRFA](https://thenounproject.com/term/congress/12741/) and used
         under Creative Commons from [The Noun
         Project](https://thenounproject.com)
-      - Supply and demand curves drawn by hand in
-Illustrator
+      - Supply and demand curves drawn by hand in Illustrator
 
-<img src="README_files/figure-gfm/unnamed-chunk-5-1.png" width="50%" style="display: block; margin: auto;" />
+<img src="README_files/figure-gfm/unnamed-chunk-8-1.png" width="50%" style="display: block; margin: auto;" />
 
 ## Packages
 
@@ -113,8 +137,7 @@ Illustrator
   - **Colors:** Invented in my head
   - **Design:** [Bible vector by Sander
     Leefers](https://thenounproject.com/term/bible/10058) and used under
-    Creative Commons from [The Noun
-Project](https://thenounproject.com)
+    Creative Commons from [The Noun Project](https://thenounproject.com)
 
 <img src="png/scriptuRs.png" width="25%" style="display: block; margin: auto;" />
 
@@ -122,7 +145,6 @@ Project](https://thenounproject.com)
 
 Everything here is licensed under a
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-Commons Attribution-ShareAlike 4.0 International
-License</a>.
+Commons Attribution-ShareAlike 4.0 International License</a>.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
