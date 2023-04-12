@@ -13,8 +13,8 @@ Adobe Illustrator rather than with R scripts like
 [this](https://github.com/GuangchuangYu/hexSticker). My hex stickers are
 certified artisinal hand-crafted vectors.
 
-The folders here contain PNG, SVG, PDF, and Illustrator versions of each
-sticker.
+The folders here contain [PNG](/png/), [SVG](/svg/), [PDF](/pdf/), and
+[Illustrator](/ai/) versions of each sticker.
 
 # Stickers
 
