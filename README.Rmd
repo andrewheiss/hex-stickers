@@ -26,6 +26,10 @@ hex_files <- c("dataviz_text.png",
                "dspm_text.png",
                "espp_text.png",
                "eval_text.png",
+               "nonprofits_text.png",
+               "bayes_text.png",
+               "comp-pa_text.png",
+               "equatiomatic_logo-big.png",
                "quRan.png",
                "scriptuRs.png")
 
@@ -33,7 +37,7 @@ file.symlink(paste0("../png/", hex_files),
              paste0("hex_compile/", hex_files))
 ```
 
-```{r echo=FALSE, out.width="50%", fig.align="center"}
+```{r echo=FALSE, out.width="50%", fig.align="center", warning=FALSE}
 hexwall("hex_compile", sticker_row_size = 3, sticker_width = 400,
         sort_mode = "color")
 ```
@@ -41,16 +45,129 @@ hexwall("hex_compile", sticker_row_size = 3, sticker_width = 400,
 <div style="float:right"><small>*I used [`hexwall`](https://github.com/mitchelloharawild/hexwall) to combine these hex stickers*</small></div>
 
 - [Classes](#classes)
+   - [Comparative public administration](#comparative-public-administration)
+   - [Bayesian statistics readings](#bayesian-statistics-readings)
+   - [Introduction to nonprofits](#introduction-to-nonprofits)
    - [Program evaluation for public service](#program-evaluation-for-public-service)
    - [Data science for public management](#data-science-for-public-management)
    - [Data visualization](#data-visualization)
-   - [Economy, Society, and Public Policy](#economy-society-and-public-policy)
+   - [Economy, society, and public policy](#economy-society-and-public-policy)
 - [Packages](#packages)
+   - [equatiomatic](#equatiomatic)
    - [quRan](#quran)
    - [scriptuRs](#scripturs)
 
 
 ## Classes
+
+### Comparative public administration
+
+- **Details:** Taught at Georgia State University: [Spring 2023](https://compasp23.classes.andrewheiss.com/)
+- **Font:** [Public Sans](https://public-sans.digital.gov/), an open source font developed as part of the General Services Administration’s [USWDS](https://designsystem.digital.gov/) (US Web Design System) for making accessible federal government websites
+- **Colors:** The [Tam](https://github.com/BlakeRMills/MetBrewer#tam) palette in [MetBrewer](https://github.com/BlakeRMills/MetBrewer):
+
+```{r eval=FALSE, indent="    "}
+MetBrewer::met.brewer("Tam")
+```
+
+- **Design:**
+  - [Capitol vector by MRFA](https://thenounproject.com/term/congress/12741/) and used under Creative Commons from [The Noun Project](https://thenounproject.com)
+  - Globe vector drawn by hand by me
+
+```{r echo=FALSE, out.width="50%", fig.align="center"}
+comppa_no_text <- image_read("png/comp-pa_no-text.png")
+comppa_text <- image_read("png/comp-pa_text.png")
+
+single_height <- image_info(comppa_text)$height
+single_width <- image_info(comppa_text)$width
+gap <- 40
+
+image_blank(width = (single_width * 2) + gap, 
+            height = single_height,
+            color = "white") %>% 
+  image_composite(comppa_text, offset = "+0+0") %>% 
+  image_composite(comppa_no_text, 
+                  offset = paste0("+", single_width + gap, "+0"))
+```
+
+### Bayesian statistics readings
+
+- **Details:** Taught at Georgia State University: [Fall 2022](https://bayesf22.classes.andrewheiss.com/), [Spring 2023](https://bayesp23.classes.andrewheiss.com/)
+- **Font:** [Raleway](https://fonts.google.com/specimen/Raleway) Black
+- **Colors:** The [Lakota](https://github.com/BlakeRMills/MetBrewer#lakota) palette in [MetBrewer](https://github.com/BlakeRMills/MetBrewer):
+
+```{r eval=FALSE, indent="    "}
+MetBrewer::met.brewer("Lakota")
+```
+
+- **Design:** Two Beta distributions made with ggplot2, saved with `ggsave()`, and wrangled in Illustrator:
+
+```{r eval=FALSE, indent="    "}
+library(tidyverse)
+library(MetBrewer)
+
+lakota <- met.brewer("Lakota")
+
+prior_posterior_plot <- ggplot() +
+  stat_function(fun = ~dbeta(.x, shape1 = 3, shape2 = 3),
+                geom = "area", alpha = 0.8, n = 500,
+                aes(fill = "Prior")) +
+  stat_function(fun = ~dbeta(.x, shape1 = 13, shape2 = 5),
+                geom = "area", alpha = 0.8, n = 500,
+                aes(fill = "Posterior")) +
+  scale_fill_manual(values = c(lakota[3], lakota[1]), guide = "none") +
+  theme_void()
+
+ggsave("prior_posterior.pdf", prior_posterior_plot,
+       width = 6, height = 4, device = cairo_pdf)
+```
+
+
+```{r echo=FALSE, out.width="50%", fig.align="center"}
+bayes_no_text <- image_read("png/bayes_no-text.png")
+bayes_text <- image_read("png/bayes_text.png")
+
+single_height <- image_info(bayes_text)$height
+single_width <- image_info(bayes_text)$width
+gap <- 40
+
+image_blank(width = (single_width * 2) + gap, 
+            height = single_height,
+            color = "white") %>% 
+  image_composite(bayes_text, offset = "+0+0") %>% 
+  image_composite(bayes_no_text, 
+                  offset = paste0("+", single_width + gap, "+0"))
+```
+
+
+### Introduction to nonprofits
+
+- **Details:** Taught at Georgia State University: [Spring 2022](https://nonprofitsp22.classes.andrewheiss.com/), [Fall 2022](https://nonprofitf22.classes.andrewheiss.com/)
+- **Font:** [Jost](https://fonts.google.com/specimen/Oswald) Semibold
+- **Colors:** The [Hiroshige](https://github.com/BlakeRMills/MetBrewer#hiroshige) palette in [MetBrewer](https://github.com/BlakeRMills/MetBrewer):
+
+```{r eval=FALSE, indent="    "}
+MetBrewer::met.brewer("Hiroshige")
+```
+
+- **Design:** Interlocking circles representing collaboration and cooperation
+
+```{r echo=FALSE, out.width="50%", fig.align="center"}
+nonprofits_no_text <- image_read("png/nonprofits_no-text.png")
+nonprofits_text <- image_read("png/nonprofits_text.png")
+
+single_height <- image_info(nonprofits_text)$height
+single_width <- image_info(nonprofits_text)$width
+gap <- 40
+
+image_blank(width = (single_width * 2) + gap, 
+            height = single_height,
+            color = "white") %>% 
+  image_composite(nonprofits_text, offset = "+0+0") %>% 
+  image_composite(nonprofits_no_text, 
+                  offset = paste0("+", single_width + gap, "+0"))
+```
+
 
 ### Program evaluation for public service
 
@@ -157,6 +274,19 @@ image_blank(width = (single_width * 2) + gap,
 ```
 
 ## Packages
+
+### equatiomatic
+
+- **Details:** Converts R model objects into LaTeX equations ([package at GitHub](https://github.com/datalorax/equatiomatic))
+- **Font:** [Consolas](https://learn.microsoft.com/en-us/typography/font-list/consolas) and [Computer Modern](https://en.wikipedia.org/wiki/Computer_Modern)
+- **Design:** 
+  - Central text: Stylized combination of a linear model using `lm()` syntax and LaTeX mathematical notation
+  - Upper text: R code for simulating data and building models
+  - Lower text: Excerpt from Galileo's ["Prima giornata"](https://portalegalileo.museogalileo.it/igjr.asp?c=17495) in *Discorsi e dimostrazioni matematiche intorno a due nuove scienze* ([*Two New Sciences*](https://en.wikipedia.org/wiki/Two_New_Sciences)), p. 51
+
+```{r echo=FALSE, out.width="25%", fig.align="center"}
+include_graphics("png/equatiomatic_logo-big.png")
+```
 
 ### quRan
 
